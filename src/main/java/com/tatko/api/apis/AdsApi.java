@@ -42,7 +42,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2024-10-21T09:22:37.079604300+03:00[Europe/Kiev]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2024-10-21T09:58:04.815778300+03:00[Europe/Kiev]")
 @Validated
 public interface AdsApi {
 
@@ -76,6 +76,60 @@ public interface AdsApi {
         consumes = { "application/json" }, 
         method = RequestMethod.POST)
     default ResponseEntity<AdApiObject> adCreate(@Parameter(in = ParameterIn.DEFAULT, description = "", required=true, schema=@Schema()) @Valid @RequestBody AdCreateApiRequest body) {
+        if(getObjectMapper().isPresent() && getAcceptHeader().isPresent()) {
+            if (getAcceptHeader().get().contains("application/json")) {
+                try {
+                    return new ResponseEntity<>(getObjectMapper().get().readValue("{\r\n  \"ad\" : \"ad\",\r\n  \"creatingTime\" : \"2000-01-23T04:56:07.000+00:00\",\r\n  \"id\" : 0,\r\n  \"deliveredTime\" : \"2000-01-23T04:56:07.000+00:00\"\r\n}", AdApiObject.class), HttpStatus.NOT_IMPLEMENTED);
+                } catch (IOException e) {
+                    log.error("Couldn't serialize response for content type application/json", e);
+                    return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+                }
+            }
+        } else {
+            log.warn("ObjectMapper or HttpServletRequest not configured in default AdsApi interface so no example is generated");
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+    }
+
+
+    @Operation(summary = "Delete ad", description = "", tags={ "Ads" })
+    @ApiResponses(value = { 
+        @ApiResponse(responseCode = "204", description = "Ad has been deleted"),
+        
+        @ApiResponse(responseCode = "400", description = "The request cannot be processed due to the format or request data value", content = @Content(mediaType = "application/json", schema = @Schema(implementation = GeneralErrorResultApiResponse.class))),
+        
+        @ApiResponse(responseCode = "401", description = "Unauthorized. The request cannot be processed due to the issue with provided authentication information"),
+        
+        @ApiResponse(responseCode = "403", description = "Forbidden. Access to the requested resource is forbidden due to the caller's access permissions"),
+        
+        @ApiResponse(responseCode = "500", description = "Unexpected processing error. The request can be re-submitted to the processing", content = @Content(mediaType = "application/json", schema = @Schema(implementation = GeneralErrorResultApiResponse.class))) })
+    @RequestMapping(value = "/v1/ads/{adId}",
+        produces = { "application/json" }, 
+        method = RequestMethod.DELETE)
+    default ResponseEntity<Void> adDelete(@Parameter(in = ParameterIn.PATH, description = "Ad ID", required=true, schema=@Schema()) @PathVariable("adId") Long adId) {
+        if(getObjectMapper().isPresent() && getAcceptHeader().isPresent()) {
+        } else {
+            log.warn("ObjectMapper or HttpServletRequest not configured in default AdsApi interface so no example is generated");
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+    }
+
+
+    @Operation(summary = "Get ad by ID", description = "", tags={ "Ads" })
+    @ApiResponses(value = { 
+        @ApiResponse(responseCode = "200", description = "Success", content = @Content(mediaType = "application/json", schema = @Schema(implementation = AdApiObject.class))),
+        
+        @ApiResponse(responseCode = "400", description = "The request cannot be processed due to the format or request data value", content = @Content(mediaType = "application/json", schema = @Schema(implementation = GeneralErrorResultApiResponse.class))),
+        
+        @ApiResponse(responseCode = "401", description = "Unauthorized. The request cannot be processed due to the issue with provided authentication information"),
+        
+        @ApiResponse(responseCode = "403", description = "Forbidden. Access to the requested resource is forbidden due to the caller's access permissions"),
+        
+        @ApiResponse(responseCode = "500", description = "Unexpected processing error. The request can be re-submitted to the processing", content = @Content(mediaType = "application/json", schema = @Schema(implementation = GeneralErrorResultApiResponse.class))) })
+    @RequestMapping(value = "/v1/ads/{adId}",
+        produces = { "application/json" }, 
+        method = RequestMethod.GET)
+    default ResponseEntity<AdApiObject> adGetById(@Parameter(in = ParameterIn.PATH, description = "Ad ID", required=true, schema=@Schema()) @PathVariable("adId") Long adId) {
         if(getObjectMapper().isPresent() && getAcceptHeader().isPresent()) {
             if (getAcceptHeader().get().contains("application/json")) {
                 try {

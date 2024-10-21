@@ -12,6 +12,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -48,5 +49,18 @@ public class AdsService {
 
         return adApiInstance;
 
+    }
+
+    public void adDelete(Long adId) {
+        adsRepository.deleteById(adId);
+    }
+
+    public AdApiObject adGetById(Long adId) {
+
+        Ad byId = adsRepository.findById(adId).orElseThrow(() -> new RuntimeException("Ad not found"));
+
+        AdApiObject adApiInstance = new AdApiObject();
+        BeanUtils.copyProperties(byId, adApiInstance);
+        return adApiInstance;
     }
 }
