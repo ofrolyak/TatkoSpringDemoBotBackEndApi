@@ -1,4 +1,4 @@
-title: AdCreateRequest
+title: AdCreateApiRequest
 type: object
 properties:
   ad:

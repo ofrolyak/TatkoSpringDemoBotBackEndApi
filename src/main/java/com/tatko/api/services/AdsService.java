@@ -1,8 +1,8 @@
 package com.tatko.api.services;
 
-import com.tatko.api.apis.models.AdApiInstance;
-import com.tatko.api.apis.models.AdCreateRequest;
-import com.tatko.api.apis.models.AdsApiInstance;
+import com.tatko.api.apis.models.AdApiObject;
+import com.tatko.api.apis.models.AdCreateApiRequest;
+import com.tatko.api.apis.models.AdsApiObject;
 import com.tatko.api.entities.Ad;
 import com.tatko.api.repositories.AdsRepository;
 import org.springframework.beans.BeanUtils;
@@ -12,7 +12,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
@@ -21,12 +20,12 @@ public class AdsService {
     @Autowired
     AdsRepository adsRepository;
 
-    public AdsApiInstance adsRequest(Pageable pageable) {
+    public AdsApiObject adsRequest(Pageable pageable) {
         Page<Ad> adList = adsRepository.findAll(pageable);
-        AdsApiInstance ads = new AdsApiInstance();
+        AdsApiObject ads = new AdsApiObject();
         ads.ad(adList.stream()
                 .map(ad -> {
-                    AdApiInstance adApiInstance = new AdApiInstance();
+                    AdApiObject adApiInstance = new AdApiObject();
                     BeanUtils.copyProperties(ad, adApiInstance);
                     return adApiInstance;
                 })
@@ -35,7 +34,7 @@ public class AdsService {
 
     }
 
-    public AdApiInstance adCreate(AdCreateRequest body) {
+    public AdApiObject adCreate(AdCreateApiRequest body) {
 
         Ad ad = new Ad();
         BeanUtils.copyProperties(body, ad);
@@ -43,7 +42,7 @@ public class AdsService {
 
         Ad save = adsRepository.save(ad);
 
-        AdApiInstance adApiInstance = new AdApiInstance();
+        AdApiObject adApiInstance = new AdApiObject();
 
         BeanUtils.copyProperties(save, adApiInstance);
 

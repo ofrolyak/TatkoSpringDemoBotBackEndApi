@@ -2,4 +2,4 @@ title: GeneralErrorResult
 type: object
 properties:
   msgs:
-    $ref: './MsgsApiInstance.yaml'
+    $ref: './MsgsApiObject.yaml'

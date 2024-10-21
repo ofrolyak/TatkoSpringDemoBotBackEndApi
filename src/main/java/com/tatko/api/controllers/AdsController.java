@@ -1,10 +1,9 @@
 package com.tatko.api.controllers;
 
 import com.tatko.api.apis.AdsApi;
-import com.tatko.api.apis.models.AdApiInstance;
-import com.tatko.api.apis.models.AdCreateRequest;
-import com.tatko.api.apis.models.AdsApiInstance;
-import com.tatko.api.entities.Ad;
+import com.tatko.api.apis.models.AdApiObject;
+import com.tatko.api.apis.models.AdCreateApiRequest;
+import com.tatko.api.apis.models.AdsApiObject;
 import com.tatko.api.services.AdsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
@@ -19,14 +18,14 @@ public class AdsController implements AdsApi {
     AdsService adsService;
 
     @Override
-    public ResponseEntity<AdsApiInstance> adsRequest(Integer page, Integer size) {
-        AdsApiInstance ads = adsService.adsRequest(Pageable.ofSize(size).withPage(page));
+    public ResponseEntity<AdsApiObject> adsRequest(Integer page, Integer size) {
+        AdsApiObject ads = adsService.adsRequest(Pageable.ofSize(size).withPage(page));
         return new ResponseEntity<>(ads, HttpStatus.OK);
     }
 
     @Override
-    public ResponseEntity<AdApiInstance> adCreate(AdCreateRequest body) {
-        AdApiInstance ad = adsService.adCreate(body);
+    public ResponseEntity<AdApiObject> adCreate(AdCreateApiRequest body) {
+        AdApiObject ad = adsService.adCreate(body);
         return new ResponseEntity<>(ad, HttpStatus.CREATED);
     }
 

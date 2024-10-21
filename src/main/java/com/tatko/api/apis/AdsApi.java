@@ -5,10 +5,10 @@
  */
 package com.tatko.api.apis;
 
-import com.tatko.api.apis.models.AdApiInstance;
-import com.tatko.api.apis.models.AdCreateRequest;
-import com.tatko.api.apis.models.AdsApiInstance;
-import com.tatko.api.apis.models.GeneralErrorResultApiInstance;
+import com.tatko.api.apis.models.AdApiObject;
+import com.tatko.api.apis.models.AdCreateApiRequest;
+import com.tatko.api.apis.models.AdsApiObject;
+import com.tatko.api.apis.models.GeneralErrorResultApiResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -42,7 +42,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2024-10-20T17:36:38.774954200+03:00[Europe/Kiev]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2024-10-21T09:22:37.079604300+03:00[Europe/Kiev]")
 @Validated
 public interface AdsApi {
 
@@ -62,24 +62,24 @@ public interface AdsApi {
 
     @Operation(summary = "Create ad", description = "", tags={ "Ads" })
     @ApiResponses(value = { 
-        @ApiResponse(responseCode = "201", description = "Ad has been created", content = @Content(mediaType = "application/json", schema = @Schema(implementation = AdApiInstance.class))),
+        @ApiResponse(responseCode = "201", description = "Ad has been created", content = @Content(mediaType = "application/json", schema = @Schema(implementation = AdApiObject.class))),
         
-        @ApiResponse(responseCode = "400", description = "The request cannot be processed due to the format or request data value", content = @Content(mediaType = "application/json", schema = @Schema(implementation = GeneralErrorResultApiInstance.class))),
+        @ApiResponse(responseCode = "400", description = "The request cannot be processed due to the format or request data value", content = @Content(mediaType = "application/json", schema = @Schema(implementation = GeneralErrorResultApiResponse.class))),
         
         @ApiResponse(responseCode = "401", description = "Unauthorized. The request cannot be processed due to the issue with provided authentication information"),
         
         @ApiResponse(responseCode = "403", description = "Forbidden. Access to the requested resource is forbidden due to the caller's access permissions"),
         
-        @ApiResponse(responseCode = "500", description = "Unexpected processing error. The request can be re-submitted to the processing", content = @Content(mediaType = "application/json", schema = @Schema(implementation = GeneralErrorResultApiInstance.class))) })
+        @ApiResponse(responseCode = "500", description = "Unexpected processing error. The request can be re-submitted to the processing", content = @Content(mediaType = "application/json", schema = @Schema(implementation = GeneralErrorResultApiResponse.class))) })
     @RequestMapping(value = "/v1/ads",
         produces = { "application/json" }, 
         consumes = { "application/json" }, 
         method = RequestMethod.POST)
-    default ResponseEntity<AdApiInstance> adCreate(@Parameter(in = ParameterIn.DEFAULT, description = "", required=true, schema=@Schema()) @Valid @RequestBody AdCreateRequest body) {
+    default ResponseEntity<AdApiObject> adCreate(@Parameter(in = ParameterIn.DEFAULT, description = "", required=true, schema=@Schema()) @Valid @RequestBody AdCreateApiRequest body) {
         if(getObjectMapper().isPresent() && getAcceptHeader().isPresent()) {
             if (getAcceptHeader().get().contains("application/json")) {
                 try {
-                    return new ResponseEntity<>(getObjectMapper().get().readValue("{\r\n  \"ad\" : \"ad\",\r\n  \"creatingTime\" : \"2000-01-23T04:56:07.000+00:00\",\r\n  \"id\" : 0,\r\n  \"deliveredTime\" : \"2000-01-23T04:56:07.000+00:00\"\r\n}", AdApiInstance.class), HttpStatus.NOT_IMPLEMENTED);
+                    return new ResponseEntity<>(getObjectMapper().get().readValue("{\r\n  \"ad\" : \"ad\",\r\n  \"creatingTime\" : \"2000-01-23T04:56:07.000+00:00\",\r\n  \"id\" : 0,\r\n  \"deliveredTime\" : \"2000-01-23T04:56:07.000+00:00\"\r\n}", AdApiObject.class), HttpStatus.NOT_IMPLEMENTED);
                 } catch (IOException e) {
                     log.error("Couldn't serialize response for content type application/json", e);
                     return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -94,23 +94,23 @@ public interface AdsApi {
 
     @Operation(summary = "Get list of available Ads", description = "", tags={ "Ads" })
     @ApiResponses(value = { 
-        @ApiResponse(responseCode = "200", description = "Successfully retrieved the response", content = @Content(mediaType = "application/json", schema = @Schema(implementation = AdsApiInstance.class))),
+        @ApiResponse(responseCode = "200", description = "Successfully retrieved the response", content = @Content(mediaType = "application/json", schema = @Schema(implementation = AdsApiObject.class))),
         
-        @ApiResponse(responseCode = "400", description = "The request cannot be processed due to the format or request data value", content = @Content(mediaType = "application/json", schema = @Schema(implementation = GeneralErrorResultApiInstance.class))),
+        @ApiResponse(responseCode = "400", description = "The request cannot be processed due to the format or request data value", content = @Content(mediaType = "application/json", schema = @Schema(implementation = GeneralErrorResultApiResponse.class))),
         
         @ApiResponse(responseCode = "401", description = "Unauthorized. The request cannot be processed due to the issue with provided authentication information"),
         
         @ApiResponse(responseCode = "403", description = "Forbidden. Access to the requested resource is forbidden due to the caller's access permissions"),
         
-        @ApiResponse(responseCode = "500", description = "Unexpected processing error. The request can be re-submitted to the processing", content = @Content(mediaType = "application/json", schema = @Schema(implementation = GeneralErrorResultApiInstance.class))) })
+        @ApiResponse(responseCode = "500", description = "Unexpected processing error. The request can be re-submitted to the processing", content = @Content(mediaType = "application/json", schema = @Schema(implementation = GeneralErrorResultApiResponse.class))) })
     @RequestMapping(value = "/v1/ads",
         produces = { "application/json" }, 
         method = RequestMethod.GET)
-    default ResponseEntity<AdsApiInstance> adsRequest(@NotNull @Parameter(in = ParameterIn.QUERY, description = "Search start position for pagination support." ,required=true,schema=@Schema( defaultValue="0")) @Valid @RequestParam(value = "page", required = true, defaultValue="0") Integer page, @NotNull @Parameter(in = ParameterIn.QUERY, description = "Number of requested elements. 20 by default." ,required=true,schema=@Schema( defaultValue="20")) @Valid @RequestParam(value = "size", required = true, defaultValue="20") Integer size) {
+    default ResponseEntity<AdsApiObject> adsRequest(@NotNull @Parameter(in = ParameterIn.QUERY, description = "Search start position for pagination support." ,required=true,schema=@Schema( defaultValue="0")) @Valid @RequestParam(value = "page", required = true, defaultValue="0") Integer page, @NotNull @Parameter(in = ParameterIn.QUERY, description = "Number of requested elements. 20 by default." ,required=true,schema=@Schema( defaultValue="20")) @Valid @RequestParam(value = "size", required = true, defaultValue="20") Integer size) {
         if(getObjectMapper().isPresent() && getAcceptHeader().isPresent()) {
             if (getAcceptHeader().get().contains("application/json")) {
                 try {
-                    return new ResponseEntity<>(getObjectMapper().get().readValue("{\r\n  \"ad\" : [ {\r\n    \"ad\" : \"ad\",\r\n    \"creatingTime\" : \"2000-01-23T04:56:07.000+00:00\",\r\n    \"id\" : 0,\r\n    \"deliveredTime\" : \"2000-01-23T04:56:07.000+00:00\"\r\n  }, {\r\n    \"ad\" : \"ad\",\r\n    \"creatingTime\" : \"2000-01-23T04:56:07.000+00:00\",\r\n    \"id\" : 0,\r\n    \"deliveredTime\" : \"2000-01-23T04:56:07.000+00:00\"\r\n  } ]\r\n}", AdsApiInstance.class), HttpStatus.NOT_IMPLEMENTED);
+                    return new ResponseEntity<>(getObjectMapper().get().readValue("{\r\n  \"ad\" : [ {\r\n    \"ad\" : \"ad\",\r\n    \"creatingTime\" : \"2000-01-23T04:56:07.000+00:00\",\r\n    \"id\" : 0,\r\n    \"deliveredTime\" : \"2000-01-23T04:56:07.000+00:00\"\r\n  }, {\r\n    \"ad\" : \"ad\",\r\n    \"creatingTime\" : \"2000-01-23T04:56:07.000+00:00\",\r\n    \"id\" : 0,\r\n    \"deliveredTime\" : \"2000-01-23T04:56:07.000+00:00\"\r\n  } ]\r\n}", AdsApiObject.class), HttpStatus.NOT_IMPLEMENTED);
                 } catch (IOException e) {
                     log.error("Couldn't serialize response for content type application/json", e);
                     return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

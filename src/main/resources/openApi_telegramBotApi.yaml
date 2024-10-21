@@ -24,7 +24,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: './schemas/AdCreateRequest.yaml'
+              $ref: './schemas/AdCreateApiRequest.yaml'
         required: true
       responses:
         '201':
@@ -32,7 +32,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: './schemas/AdApiInstance.yaml'
+                $ref: './schemas/AdApiObject.yaml'
           headers: { }
 
         '400':
@@ -40,7 +40,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: './schemas/GeneralErrorResultApiInstance.yaml'
+                $ref: './schemas/GeneralErrorResultApiResponse.yaml'
 
         '401':
           description: Unauthorized. The request cannot be processed due to the issue with provided authentication information
@@ -55,7 +55,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: './schemas/GeneralErrorResultApiInstance.yaml'
+                $ref: './schemas/GeneralErrorResultApiResponse.yaml'
 
       deprecated: false
 
@@ -95,14 +95,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: './schemas/AdsApiInstance.yaml'
+                $ref: './schemas/AdsApiObject.yaml'
 
         '400':
           description: The request cannot be processed due to the format or request data value
           content:
             application/json:
               schema:
-                $ref: './schemas/GeneralErrorResultApiInstance.yaml'
+                $ref: './schemas/GeneralErrorResultApiResponse.yaml'
 
         '401':
           description: Unauthorized. The request cannot be processed due to the issue with provided authentication information
@@ -117,7 +117,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: './schemas/GeneralErrorResultApiInstance.yaml'
+                $ref: './schemas/GeneralErrorResultApiResponse.yaml'
 
       deprecated: false
 

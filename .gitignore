@@ -34,3 +34,4 @@ build/
 
 ### Logs
 *.log
+/src/main/java/com/tatko/api/apis/
