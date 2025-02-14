@@ -1,0 +1,13 @@
+title: OptionalDateTimeApiRequest
+type: object
+properties:
+  present:
+    type: boolean
+    example: false
+    default: false
+  value:
+    $ref: './FilterDateTimeApiObject.yaml'
+
+
+
+

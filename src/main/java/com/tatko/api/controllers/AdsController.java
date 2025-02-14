@@ -4,10 +4,8 @@ import com.tatko.api.apis.AdsApi;
 import com.tatko.api.apis.models.AdApiObject;
 import com.tatko.api.apis.models.AdCreateApiRequest;
 import com.tatko.api.apis.models.AdsApiObject;
+import com.tatko.api.apis.models.FilterAdApiRequest;
 import com.tatko.api.services.AdsService;
-import io.swagger.v3.oas.annotations.Parameter;
-import io.swagger.v3.oas.annotations.enums.ParameterIn;
-import io.swagger.v3.oas.annotations.media.Schema;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -22,8 +20,8 @@ public class AdsController implements AdsApi {
     AdsService adsService;
 
     @Override
-    public ResponseEntity<AdsApiObject> adsRequest(Integer page, Integer size) {
-        AdsApiObject ads = adsService.adsRequest(Pageable.ofSize(size).withPage(page));
+    public ResponseEntity<AdsApiObject> adsRequest(Integer page, Integer size, FilterAdApiRequest body) {
+        AdsApiObject ads = adsService.adsRequest(body, Pageable.ofSize(size).withPage(page));
         return new ResponseEntity<>(ads, HttpStatus.OK);
     }
 

@@ -59,7 +59,9 @@ paths:
 
       deprecated: false
 
-    get:
+  /v1/ads/filter:
+
+    post:
       tags:
         - Ads
       security:
@@ -87,6 +89,14 @@ paths:
             type: integer
             example: 20
             default: 20
+
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: './schemas/FilterAdApiRequest.yaml'
+        required: true
 
       responses:
         '200':

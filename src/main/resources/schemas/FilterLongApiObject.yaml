@@ -1,0 +1,21 @@
+title: LongFilterApiRequest
+type: object
+properties:
+  negate:
+    type: boolean
+    example: false
+    default: false
+  onValue:
+    type: integer
+  minValue:
+    type: integer
+  maxValue:
+    type: integer
+  action:
+    type: string
+    enum:
+      - EQUAL
+      - GREATER_EQUAL
+      - LESS_EQUAL
+      - BETWEEN
+      - IS_NULL

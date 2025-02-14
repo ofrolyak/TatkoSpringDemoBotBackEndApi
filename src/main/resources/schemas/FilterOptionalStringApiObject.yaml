@@ -1,0 +1,9 @@
+title: OptionalStringFilterApiRequest
+type: object
+properties:
+  present:
+    type: boolean
+    example: false
+    default: false
+  value:
+    $ref: './FilterStringApiObject.yaml'

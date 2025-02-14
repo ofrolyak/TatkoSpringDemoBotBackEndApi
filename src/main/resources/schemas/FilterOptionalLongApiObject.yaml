@@ -1,0 +1,9 @@
+title: OptionalLongFilterApiRequest
+type: object
+properties:
+  present:
+    type: boolean
+    example: false
+    default: false
+  value:
+    $ref: './FilterLongApiObject.yaml'

@@ -1,0 +1,24 @@
+title: DateTimeApiRequest
+type: object
+properties:
+  negate:
+    type: boolean
+    example: false
+    default: false
+  onDate:
+    type: string
+    format: date-time
+  startDate:
+    type: string
+    format: date-time
+  endDate:
+    type: string
+    format: date-time
+  action:
+    type: string
+    enum:
+      - BETWEEN
+      - EQUAL
+      - ON_BEFORE
+      - ON_AFTER
+      - IS_NULL
