@@ -1,7 +1,6 @@
 package com.tatko.api.services;
 
 import com.tatko.api.MockitoExtensionBaseMockTests;
-import com.tatko.api.apis.models.AdCreateApiRequest;
 import com.tatko.api.apis.models.AdsApiObject;
 import com.tatko.api.entities.AdJpaEntity;
 import org.junit.jupiter.api.Test;
@@ -10,7 +9,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class AdsUtilityStatic4buildAdsApiObject4Test extends MockitoExtensionBaseMockTests {
+public class AdsUtilityStatic4buildAdsApiObject4MockedTest extends MockitoExtensionBaseMockTests {
 
     @Test
     void verifyEmptyResult4Test() {

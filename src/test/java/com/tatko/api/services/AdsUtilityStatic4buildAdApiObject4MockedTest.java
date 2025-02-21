@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class AdsUtilityStatic4buildAdApiObject4Test extends MockitoExtensionBaseMockTests {
+public class AdsUtilityStatic4buildAdApiObject4MockedTest extends MockitoExtensionBaseMockTests {
 
     @Test
     void verifyFields4Test() {

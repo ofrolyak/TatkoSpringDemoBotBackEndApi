@@ -16,7 +16,7 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-public class AdsController4adGetById4Test extends MockitoExtensionBaseMockTests {
+public class AdsController4adGetById4MockedTest extends MockitoExtensionBaseMockTests {
 
     @Mock
     AdsService adsService;

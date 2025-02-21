@@ -1,25 +1,22 @@
-package com.tatko.api.services;
+package com.tatko.api.dao;
 
 import com.tatko.api.MockitoExtensionBaseMockTests;
-import com.tatko.api.apis.models.AdApiObject;
-import com.tatko.api.apis.models.AdCreateApiRequest;
+import com.tatko.api.repositories.AdsRepository;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
-class AdsService4adDelete4Test extends MockitoExtensionBaseMockTests {
+class AdsDaoService4deleteById4MockedTest extends MockitoExtensionBaseMockTests {
 
     @Mock
-    AdsUtilityService adsUtilityService;
+    AdsRepository adsRepository;
     @InjectMocks
-    AdsService adsService;
+    AdsDaoService adsDaoService;
 
     @Test
     void base4Test() {
@@ -29,14 +26,14 @@ class AdsService4adDelete4Test extends MockitoExtensionBaseMockTests {
 
         // When
         doNothing()
-                .when(adsUtilityService)
+                .when(adsRepository)
                 .deleteById(eq(id));
 
         // Action
-        adsService.adDelete(id);
+        adsDaoService.deleteById(id);
 
         // Then
-        verify(adsUtilityService, times(1))
+        verify(adsRepository, times(1))
                 .deleteById(eq(id));
 
     }

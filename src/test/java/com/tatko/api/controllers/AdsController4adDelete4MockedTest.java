@@ -1,8 +1,6 @@
 package com.tatko.api.controllers;
 
 import com.tatko.api.MockitoExtensionBaseMockTests;
-import com.tatko.api.apis.models.AdApiObject;
-import com.tatko.api.apis.models.AdCreateApiRequest;
 import com.tatko.api.services.AdsService;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -15,9 +13,8 @@ import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
-public class AdsController4adDelete4Test extends MockitoExtensionBaseMockTests {
+public class AdsController4adDelete4MockedTest extends MockitoExtensionBaseMockTests {
 
     @Mock
     AdsService adsService;

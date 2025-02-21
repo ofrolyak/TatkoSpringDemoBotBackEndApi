@@ -1,13 +1,11 @@
 package com.tatko.api.services;
 
 import com.tatko.api.MockitoExtensionBaseMockTests;
-import com.tatko.api.apis.models.AdApiObject;
 import com.tatko.api.apis.models.AdsApiObject;
 import com.tatko.api.apis.models.FilterAdApiRequest;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -16,7 +14,7 @@ import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
-class AdsService4adsRequest4Test extends MockitoExtensionBaseMockTests {
+class AdsService4adsRequest4MockedTest extends MockitoExtensionBaseMockTests {
 
     @Mock
     AdsUtilityService adsUtilityService;
