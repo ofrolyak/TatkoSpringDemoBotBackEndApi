@@ -1,9 +1,8 @@
 title: OptionalLongFilterApiRequest
 type: object
-properties:
-  present:
-    type: boolean
-    example: false
-    default: false
-  value:
-    $ref: './FilterLongApiObject.yaml'
+allOf:
+  - $ref: './FilterOptionalParentApiObject.yaml'
+  - type: object
+    properties:
+      value:
+        $ref: './FilterLongApiObject.yaml'

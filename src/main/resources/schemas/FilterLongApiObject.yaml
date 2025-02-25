@@ -1,10 +1,6 @@
 title: LongFilterApiRequest
 type: object
 properties:
-  negate:
-    type: boolean
-    example: false
-    default: false
   onValue:
     type: integer
   minValue:

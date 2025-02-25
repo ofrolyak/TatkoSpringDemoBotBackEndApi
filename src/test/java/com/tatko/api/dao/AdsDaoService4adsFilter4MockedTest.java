@@ -30,7 +30,8 @@ class AdsDaoService4adsFilter4MockedTest extends MockitoExtensionBaseMockTests {
     void base4Test() {
 
         // Prepare
-        FilterAdApiRequest filterAdApiRequest = getGen().nextObject(FilterAdApiRequest.class);
+        //FilterAdApiRequest filterAdApiRequest = getGen().nextObject(FilterAdApiRequest.class);
+        FilterAdApiRequest filterAdApiRequest = new FilterAdApiRequest();
 
         // When
         doReturn(List.of())

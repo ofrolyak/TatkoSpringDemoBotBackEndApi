@@ -31,7 +31,8 @@ public class AdsController4adsRequest4MockedTest extends MockitoExtensionBaseMoc
         // Prepare
         int page = getGen().nextInt(1000);
         int size = getGen().nextInt(1000);
-        FilterAdApiRequest filterAdApiRequest = getGen().nextObject(FilterAdApiRequest.class);
+        //FilterAdApiRequest filterAdApiRequest = getGen().nextObject(FilterAdApiRequest.class);
+        FilterAdApiRequest filterAdApiRequest = new FilterAdApiRequest();
         AdsApiObject adsApiObject = getGen().nextObject(AdsApiObject.class);
 
         // When

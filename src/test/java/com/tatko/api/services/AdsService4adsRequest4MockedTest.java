@@ -26,7 +26,8 @@ class AdsService4adsRequest4MockedTest extends MockitoExtensionBaseMockTests {
 
         // Prepare
         AdsApiObject adsApiObject = getGen().nextObject(AdsApiObject.class);
-        FilterAdApiRequest filterAdApiRequest = getGen().nextObject(FilterAdApiRequest.class);
+        //FilterAdApiRequest filterAdApiRequest = getGen().nextObject(FilterAdApiRequest.class);
+        FilterAdApiRequest filterAdApiRequest = new FilterAdApiRequest();
         Pageable pageable = Pageable.unpaged();
         long id = getGen().nextLong();
 

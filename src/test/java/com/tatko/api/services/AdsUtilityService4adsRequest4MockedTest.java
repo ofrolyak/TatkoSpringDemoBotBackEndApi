@@ -31,7 +31,8 @@ class AdsUtilityService4adsRequest4MockedTest extends MockitoExtensionBaseMockTe
     void base4emptyCase4Test() {
 
         // Prepare
-        FilterAdApiRequest filterAdApiRequest = getGen().nextObject(FilterAdApiRequest.class);
+        //FilterAdApiRequest filterAdApiRequest = getGen().nextObject(FilterAdApiRequest.class);
+        FilterAdApiRequest filterAdApiRequest = new FilterAdApiRequest();
         Pageable pageable = Pageable.unpaged();
 
         // When
@@ -54,7 +55,8 @@ class AdsUtilityService4adsRequest4MockedTest extends MockitoExtensionBaseMockTe
     void base4notEmptyCase4Test() {
 
         // Prepare
-        FilterAdApiRequest filterAdApiRequest = getGen().nextObject(FilterAdApiRequest.class);
+        //FilterAdApiRequest filterAdApiRequest = getGen().nextObject(FilterAdApiRequest.class);
+        FilterAdApiRequest filterAdApiRequest = new FilterAdApiRequest();
         AdJpaEntity adJpaEntity = getGen().nextObject(AdJpaEntity.class);
         Pageable pageable = Pageable.unpaged();
 
