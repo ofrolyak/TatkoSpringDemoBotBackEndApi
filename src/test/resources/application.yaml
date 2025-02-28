@@ -14,12 +14,16 @@ telegram:
 
 logging:
   level:
-    root: OFF
+    root: off
 
 spring:
   datasource:
     driver-class-name: org.h2.Driver
-  profiles:
-    active: test
   flyway:
     enabled: false
+  jpa:
+    properties:
+      hibernate:
+        show_sql: false
+  profiles:
+    active: test

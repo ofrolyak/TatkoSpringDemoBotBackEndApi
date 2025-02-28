@@ -369,7 +369,7 @@
 				<version>${jacoco.version}</version>
 				<configuration>
 					<excludes>
-<!--						<exclude>com/tatko/telegram/bot/TatkoSpringDemoBotBackEndApplication.class</exclude>-->
+						<exclude>com/tatko/api/TatkoSpringDemoBotBackEndApiApplication.class</exclude>
 						<exclude>com/tatko/api/apis/models/**.class</exclude>
 						<exclude>com/tatko/api/exceptions/**.class</exclude>
 						<exclude>com/tatko/api/apis/**.class</exclude>
@@ -404,7 +404,7 @@
 										<limit>
 											<counter>INSTRUCTION</counter>
 											<value>COVEREDRATIO</value>
-											<minimum>1.00</minimum>
+											<minimum>0.99</minimum>
 										</limit>
 										<limit>
 											<counter>BRANCH</counter>

@@ -18,7 +18,6 @@ properties:
     type: string
     enum:
       - BETWEEN
-      - EQUAL
-      - ON_BEFORE
-      - ON_AFTER
+      - BEFORE
+      - AFTER
       - IS_NULL

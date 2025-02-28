@@ -3,10 +3,13 @@ type: object
 properties:
   onValue:
     type: integer
+    format: int64
   minValue:
     type: integer
+    format: int64
   maxValue:
     type: integer
+    format: int64
   action:
     type: string
     enum:

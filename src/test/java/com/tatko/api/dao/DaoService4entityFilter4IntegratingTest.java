@@ -2,6 +2,7 @@ package com.tatko.api.dao;
 
 import com.tatko.api.SpringBootTestBaseMockTests;
 import com.tatko.api.entities.AdJpaEntity;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
@@ -18,6 +19,12 @@ class DaoService4entityFilter4IntegratingTest extends SpringBootTestBaseMockTest
     DaoService daoService;
     @Autowired
     AdsDaoService adsDaoService;
+
+    @Override
+    @BeforeEach
+    protected void setUp() {
+        super.setUp();
+    }
 
     @Test
     void base4emptyCase4Test() {
