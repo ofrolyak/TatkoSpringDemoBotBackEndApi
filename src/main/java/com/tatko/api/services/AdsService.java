@@ -11,19 +11,45 @@ import org.springframework.stereotype.Service;
 @Service
 public class AdsService {
 
+    /**
+     * The AdsUtilityService instance used to manage and handle operations
+     * related to advertisements in the application. It provides functionalities
+     * such as creating, retrieving, filtering, and deleting advertisements.
+     * This service is utilized as a dependency in the AdsService class to
+     * perform advertisement-related business logic.
+     */
     @Autowired
-    AdsUtilityService adsUtilityService;
+    private AdsUtilityService adsUtilityService;
 
+    /**
+     * Filters and retrieves advertisements based on the specified
+     * filter criteria
+     * and pagination details.
+     *
+     * @param filterAdApiRequest the filter criteria encapsulated
+     *                           in a FilterAdApiRequest object
+     * @param pageable the pagination details encapsulated in a Pageable object
+     * @return an AdsApiObject containing the filtered list of advertisements
+     */
+    public AdsApiObject adsRequest(
+            final FilterAdApiRequest filterAdApiRequest,
+            final Pageable pageable) {
 
-    public AdsApiObject adsRequest(FilterAdApiRequest filterAdApiRequest, Pageable pageable) {
-
-        AdsApiObject ads = adsUtilityService.adsRequest(filterAdApiRequest, pageable);
+        AdsApiObject ads = adsUtilityService.adsRequest(
+                filterAdApiRequest, pageable);
 
         return ads;
 
     }
 
-    public AdApiObject adCreate(AdCreateApiRequest body) {
+    /**
+     * Creates a new advertisement based on the provided request object and
+     * returns its representation as an AdApiObject.
+     *
+     * @param body the request object containing necessary data for creating
+     *             an advertisement.
+     * @return the created advertisement represented as an AdApi*/
+    public AdApiObject adCreate(final AdCreateApiRequest body) {
 
         AdApiObject adApiObject = adsUtilityService.adCreate(body);
 
@@ -31,13 +57,27 @@ public class AdsService {
 
     }
 
-    public void adDelete(Long adId) {
+    /**
+     * Deletes an advertisement by its unique identifier.
+     *
+     * @param adId the unique identifier of the advertisement to be deleted.
+     *             Must correspond to an existing advertisement in the system.
+     */
+    public void adDelete(final Long adId) {
 
         adsUtilityService.deleteById(adId);
 
     }
 
-    public AdApiObject adGetById(Long adId) {
+    /**
+     * Retrieves an advertisement by its unique ID.
+     *
+     * @param adId the unique identifier of the advertisement to be retrieved.
+     *             It must correspond to an existing advertisement
+     *             in the system.
+     * @return an AdApiObject representing the advertisement data.
+     */
+    public AdApiObject adGetById(final Long adId) {
 
         AdApiObject adApiObject = adsUtilityService.adGetById(adId);
 
